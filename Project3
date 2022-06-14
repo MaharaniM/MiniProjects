@@ -1,0 +1,27 @@
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Project3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\\\Program Files\\\\chromedriver.exe");
+        @SuppressWarnings("unused")
+		WebDriver driver=new ChromeDriver();
+        
+		driver.get("https://blazedemo.com/login");
+		int numberOfLinks = driver.findElements(By.tagName("a")).size();
+		System.out.println("Number of links on BlazeDemo :" +numberOfLinks );
+		
+		List<WebElement>allLinks = driver.findElements(By.tagName("a"));
+		for(WebElement link:allLinks) {
+			System.out.println(link.getText()+"-" +link.getAttribute("href"));
+		}
+	}
+
+}
